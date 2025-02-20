@@ -66,12 +66,17 @@
                   <h3>Published Date : {{response.publish_date}} </h3>
                   <h3>ISBN : {{response.isbn}} </h3>
                 </div>
+                <form method="post" action="/reserve">
+
+                  <input type="hidden" name="csrf_token" value="{{ frappe.session.csrf_token }}">
+
                 <div class="entry-content">
                 
                   <div class="read-more">
-                    <a href="detail.html">Reserve this Book</a>
+                    <button name ="submit"><a href="reserve?name={{response.title}}">Reserve this Book</a></button>
                   </div>
                 </div>
+                </form>
               </article><!-- End entry -->
               
             </div>
